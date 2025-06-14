@@ -13,17 +13,17 @@ router.route("/login").post(authController.login);
 router
     .route("/trips")
     .get(tripsController.tripsList) // GET method routes tripList
-    .post(authenticateJWT, tripsController.tripsAddtrip);
+    .post(tripsController.tripsAddTrip); // POST Method Adds a trip
 
 //GET method routes tripsFindByCode - requires parameter
 router
     .route('/trips/:tripCode')
     .get(tripsController.tripsFindByCode)
-    .put(authenticateJWT, tripsController.tripsUpdateTrip);
+    .put(/*authenticateJWT,*/ tripsController.tripsUpdateTrip);
 
 // define route for login endpoint
-router
-    .route('/login')
-    .post(authController.login);
+//router
+//    .route('/login')
+//    .post(authController.login);
 
 module.exports = router;

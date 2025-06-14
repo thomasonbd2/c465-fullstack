@@ -33,10 +33,6 @@ const register = async (req, res) => {
     }
 };
 
-module.exports = {
-    register,
-    login
-};
 
 const login = (req, res) => {
     // Validate message to ensure that email and password are present.
@@ -64,4 +60,9 @@ const login = (req, res) => {
                 .json(info);
         }
     })(req, res);
+};
+
+module.exports = {
+    register,
+    login
 };
