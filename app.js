@@ -24,7 +24,7 @@ var app = express();
 app.set('views', path.join(__dirname, 'app_server', 'views'));
 app.set('view engine', 'hbs');
 
-// register handlebars partials (https://www.npmjs.com/package.hbs)
+// register handlebars partials
 handlebars.registerPartials(__dirname + '/app_server/views/partials');
 
 app.use(logger('dev'));
@@ -34,40 +34,35 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(passport.initialize());
 
-// Enable CORS
+// Combine CORS and API router mount
 app.use('/api', (req, res, next) => {
-  res.header('Access-Control-Allow-Origin', 'http://localhost:4200'); // Allow requests from the Angular app
+  res.header('Access-Control-Allow-Origin', 'http://localhost:4200');
   res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
-  res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE'); // Add PUT and DELETE
+  res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
   next();
-});
+}, apiRouter);
 
+// Other routes
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/travel', travelRouter);
-app.use('/api', apiRouter);
 
-// Catch unauthorized error and create 401
+// Unauthorized error handler
 app.use((err, req, res, next) => {
   if (err.name === 'UnauthorizedError') {
-    res
-      .status(401)
-      .json({ "message": err.name + ": " + err.message });
+    res.status(401).json({ message: err.name + ": " + err.message });
   }
 });
 
-// catch 404 and forward to error handler
+// 404 handler
 app.use(function (req, res, next) {
   next(createError(404));
 });
 
-// error handler
+// General error handler
 app.use(function (err, req, res, next) {
-  // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
-
-  // render the error page
   res.status(err.status || 500);
   res.render('error');
 });

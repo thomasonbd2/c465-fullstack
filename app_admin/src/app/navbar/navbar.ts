@@ -8,8 +8,8 @@ import { RouterModule } from '@angular/router';
   selector: 'app-navbar',
   standalone: true,
   imports: [CommonModule, RouterModule],
-  templateUrl: './navbar.component.html',
-  styleUrl: './navbar.component.css',
+  templateUrl: './navbar.html',
+  styleUrl: './navbar.css',
 })
 export class NavbarComponent implements OnInit {
   constructor(
