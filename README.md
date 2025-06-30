@@ -17,5 +17,5 @@ To make sure everything worked properly, I tested how the app talks to the serve
 
 I also learned how the app handles different types of requests and how it keeps things secure using tokens that prove someone is logged in.
 
-**Reflection)**
+**Reflection**
 This course helped me learn how to build a full working web app from start to finish. I got better at using tools like Angular, Express, and MongoDB, and I learned how to make the app secure for users and admins.
