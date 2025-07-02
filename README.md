@@ -1,6 +1,7 @@
 # c465-fullstack
 CS-465 Full Stack Development with MEAN
 
+<<<<<<< HEAD
 
 **Architecture**
 This project uses different ways to build the parts users see and interact with. For the customer side, I used basic tools like HTML and JavaScript with Express to show pages and handle simple tasks. Later, I built the admin side using Angular, which works more like an app you’d install on your phone—fast, smooth, and able to update parts of the screen without reloading the whole page.
@@ -19,3 +20,5 @@ I also learned how the app handles different types of requests and how it keeps 
 
 **Reflection**
 This course helped me learn how to build a full working web app from start to finish. I got better at using tools like Angular, Express, and MongoDB, and I learned how to make the app secure for users and admins.
+=======
+>>>>>>> module7
