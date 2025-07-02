@@ -17,7 +17,6 @@ const userSchema = new mongoose.Schema({
     salt: String
 });
 
-mongoose.model('users', userSchema);
 
 // Method to set the password on this record.
 userSchema.methods.setPassword = function(password){
